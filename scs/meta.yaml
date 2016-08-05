@@ -36,9 +36,10 @@ requirements:
     - numpy >=1.7
     - scipy >=0.13.2
 
-# test:
+test:
   # Python imports
-  # imports:
+  imports:
+    - scs
 
   # commands:
     # You can put test commands to be run here.  Use this to test that the

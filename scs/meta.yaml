@@ -55,7 +55,7 @@ requirements:
 about:
   home: http://github.com/cvxgrp/scs
   license: MIT
-  license_file: license.txt
+#  license_file: license.txt
   summary: 'scs: splitting conic solver'
 
 # See

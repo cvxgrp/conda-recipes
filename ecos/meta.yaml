@@ -1,0 +1,62 @@
+package:
+  name: ecos
+  version: "2.0.4"
+
+source:
+  git_url: https://github.com/embotech/ecos-python
+#  patches:
+   # List any patch files here
+   # - fix.patch
+
+# build:
+  # noarch_python: True
+  # preserve_egg_dir: True
+  # entry_points:
+    # Put any entry points (scripts to be generated automatically) here. The
+    # syntax is module:function.  For example
+    #
+    # - ecos = ecos:main
+    #
+    # Would create an entry point called ecos that calls ecos.main()
+
+
+  # If this is a new build for the same version, increment the build
+  # number. If you do not include this key, it defaults to 0.
+  # number: 1
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - numpy >=1.6
+    - scipy >=0.9
+
+  run:
+    - python
+    - numpy >=1.6
+    - scipy >=0.9
+
+test:
+  # Python imports
+  imports:
+    - ecos
+  # commands:
+    # You can put test commands to be run here.  Use this to test that the
+    # entry points work.
+
+
+  # You can also put a file called run_test.py in the recipe that will be run
+  # at test time.
+
+  # requires:
+    # Put any additional test requirements here.  For example
+    # - nose
+
+about:
+  home: http://github.com/embotech/ecos
+  license: GPLv3
+  summary: 'This is the Python package for ECOS: Embedded Cone Solver. See Github page for more information.'
+
+# See
+# http://docs.continuum.io/conda/build.html for
+# more information about meta.yaml

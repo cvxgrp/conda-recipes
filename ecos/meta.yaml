@@ -1,28 +1,22 @@
+# Jinja variables help maintain the recipe as you'll update the version only here.
+{% set version = "2.0.4" %}
+{% set sha256 = "1733e2e5f0fe12389acfaab9aff613d0405855c7aa802c1ca624652168255187" %}
+# sha256 is the prefered checksum -- you can get it for a file with:
+#   $ openssl sha256 <file>
+# On Windows, you'll need the openssl pacakge, available on conda-forge
+
 package:
   name: ecos
-  version: "2.0.4"
+  version: {{ version }}
 
 source:
-  git_url: https://github.com/embotech/ecos-python
-#  patches:
-   # List any patch files here
-   # - fix.patch
+  fn: simplejson-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/e/ecos/ecos-{{ version }}.tar.gz
+  sha256: {{ sha256 }}
 
-# build:
-  # noarch_python: True
-  # preserve_egg_dir: True
-  # entry_points:
-    # Put any entry points (scripts to be generated automatically) here. The
-    # syntax is module:function.  For example
-    #
-    # - ecos = ecos:main
-    #
-    # Would create an entry point called ecos that calls ecos.main()
-
-
-  # If this is a new build for the same version, increment the build
-  # number. If you do not include this key, it defaults to 0.
-  # number: 1
+build:
+  number: 0
+  script: python setup.py install --single-version-externally-managed --record record.txt
 
 requirements:
   build:
@@ -40,23 +34,19 @@ test:
   # Python imports
   imports:
     - ecos
-  # commands:
-    # You can put test commands to be run here.  Use this to test that the
-    # entry points work.
-
-
-  # You can also put a file called run_test.py in the recipe that will be run
-  # at test time.
-
-  # requires:
-    # Put any additional test requirements here.  For example
-    # - nose
 
 about:
   home: http://github.com/embotech/ecos
   license: GPLv3
   summary: 'This is the Python package for ECOS: Embedded Cone Solver. See Github page for more information.'
 
-# See
-# http://docs.continuum.io/conda/build.html for
-# more information about meta.yaml
+  # The remaining entries in this section are optional, but recommended
+  description: |
+    This is the Python package for ECOS: Embedded Cone Solver. 
+    See Github page for more information.
+  doc_url: https://www.embotech.com/ECOS
+  dev_url: https://github.com/embotech/ecos
+
+extra:
+  recipe-maintainers:
+    - Enzo Busseti

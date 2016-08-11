@@ -1,9 +1,5 @@
-# Jinja variables help maintain the recipe as you'll update the version only here.
 {% set version = "2.0.4" %}
 {% set sha256 = "1733e2e5f0fe12389acfaab9aff613d0405855c7aa802c1ca624652168255187" %}
-# sha256 is the prefered checksum -- you can get it for a file with:
-#   $ openssl sha256 <file>
-# On Windows, you'll need the openssl pacakge, available on conda-forge
 
 package:
   name: ecos
@@ -21,26 +17,31 @@ build:
 requirements:
   build:
     - python
+    - numpy
     - setuptools
-    - numpy >=1.6
-    - scipy >=0.9
+    - pip
+    - scipy
 
   run:
     - python
-    - numpy >=1.6
-    - scipy >=0.9
-
+    - numpy
+    - scipy
 test:
-  # Python imports
-  imports:
-    - ecos
+    files:
+      - ..\..\src\test_interface.py
+      - ..\..\src\test_interface_bb.py
+    requires:
+      - nose
+    imports:
+      - ecos
+    commands:
+      - nosetests --nocapture test_interface.py
+      - nosetests --nocapture test_interface_bb.py
 
 about:
-  home: http://github.com/embotech/ecos
+  home: https://github.com/embotech/ecos-python
   license: GPLv3
-  summary: 'This is the Python package for ECOS: Embedded Cone Solver. See Github page for more information.'
-
-  # The remaining entries in this section are optional, but recommended
+  summary: Embedded cone solver for second-order cone programs
   description: |
     This is the Python package for ECOS: Embedded Cone Solver. 
     See Github page for more information.

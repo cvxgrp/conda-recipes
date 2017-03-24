@@ -42,6 +42,7 @@ requirements:
     - multiprocess
     - numpy >=1.9
     - scipy >=0.15
+    - libgcc
 
 
   run:
@@ -55,6 +56,7 @@ requirements:
     - numpy >=1.9
     - scipy >=0.15
     - cvxcanon >=0.0.22
+    - libgcc
 
 test:
   # Python imports

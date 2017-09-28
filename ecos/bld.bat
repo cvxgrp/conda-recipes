@@ -1,4 +1,2 @@
-xcopy /e "%RECIPE_DIR%\..\.." "%SRC_DIR%"
-"%PYTHON%" -m pip install wheel
-"%PYTHON%" setup.py install bdist_wheel
+"%PYTHON%" setup.py install
 if errorlevel 1 exit 1

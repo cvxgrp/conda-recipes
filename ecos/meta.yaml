@@ -27,8 +27,8 @@ requirements:
     - scipy
 #test:
 #    files:
-#      - ../../src/test_interface.py
-#      - ../../src/test_interface_bb.py
+#      - src/test_interface.py
+#      - src/test_interface_bb.py
 #    requires:
 #      - nose
 #    imports:

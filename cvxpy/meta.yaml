@@ -1,10 +1,10 @@
 package:
   name: cvxpy
-  version: "0.4.9"
+  version: "1.0.1"
 
 source:
   git_url: https://github.com/cvxgrp/cvxpy
-  git_tag: v0.4.9
+  git_tag: v1.0.1
 #  patches:
    # List any patch files here
    # - fix.patch
@@ -43,6 +43,7 @@ requirements:
     - numpy >=1.9
     - scipy >=0.15
     - libgcc
+    - lapack
 
 
   run:
@@ -57,6 +58,7 @@ requirements:
     - scipy >=0.15
     - cvxcanon >=0.0.22
     - libgcc
+    - lapack
 
 test:
   # Python imports
@@ -65,19 +67,35 @@ test:
     - cvxpy.atoms
     - cvxpy.atoms.affine
     - cvxpy.atoms.elementwise
+    - cvxpy.cvxcore
+    - cvxpy.cvxcore.python
     - cvxpy.constraints
     - cvxpy.expressions
     - cvxpy.expressions.constants
-    - cvxpy.expressions.variables
     - cvxpy.interface
     - cvxpy.interface.numpy_interface
     - cvxpy.lin_ops
     - cvxpy.problems
     - cvxpy.problems.problem_data
     - cvxpy.problems.solvers
+    - cvxpy.reductions
+    - cvxpy.reductions.complex2real
+    - cvxpy.reductions.complex2real.atom_canonicalizers
+    - cvxpy.reductions.dcp2cone
+    - cvxpy.reductions.dcp2cone.atom_canonicalizers
+    - cvxpy.reductions.eliminate_pwl
+    - cvxpy.reductions.eliminate_pwl.atom_canonicalizers
+    - cvxpy.reductions.qp2quad_form
+    - cvxpy.reductions.qp2quad_form.atom_canonicalizers
+    - cvxpy.reductions.eliminate_pwl.atom_canonicalizers
+    - cvxpy.reductions.solvers
+    - cvxpy.reductions.solvers.conic_solvers
+    - cvxpy.reductions.solvers.qp_solvers
+    - cvxpy.reductions.solvers.lp_solvers
     - cvxpy.tests
     - cvxpy.transforms
     - cvxpy.utilities
+    - cvxpy.cvxcore.python
 
   # commands:
     # You can put test commands to be run here.  Use this to test that the
